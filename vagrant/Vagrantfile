@@ -22,7 +22,7 @@ Vagrant.configure(2) do |config|
       s.inline = "sudo apt -y upgrade"
       s.inline = "git clone https://github.com/lucaspsacchi/Trab1-TAAD.git"
       s.inline = "cd Trab1-TAAD/scripts"
-      s.inline = "chmod +rwx docker_init.sh"
+      s.inline = "sudo chmod +rwx docker_init.sh"
       s.inline = "sudo ./docker_init.sh"
     end
   end
@@ -41,7 +41,7 @@ Vagrant.configure(2) do |config|
       s.inline = "sudo apt -y upgrade"
       s.inline = "git clone https://github.com/lucaspsacchi/Trab1-TAAD.git"
       s.inline = "cd Trab1-TAAD/scripts"
-      s.inline = "chmod +rwx docker_init.sh"
+      s.inline = "sudo chmod +rwx docker_init.sh"
       s.inline = "sudo ./docker_init.sh"
     end
   end
