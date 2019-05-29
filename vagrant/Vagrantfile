@@ -17,14 +17,7 @@ Vagrant.configure(2) do |config|
             vb.memory = "4096"
             vb.name = "master"
       end
-    containerhost01.vm.provision "shell" do |s|
-      s.inline = "sudo apt update"
-      s.inline = "sudo apt -y upgrade"
-      s.inline = "git clone https://github.com/lucaspsacchi/Trab1-TAAD.git"
-      s.inline = "cd Trab1-TAAD/scripts"
-      s.inline = "sudo chmod +rwx docker_init.sh"
-      s.inline = "sudo sh docker_init.sh"
-    end
+    containerhost01.vm.provision "shell", path: "../scripts/docker_init.sh"
   end
   config.vm.define "worker" do |containerhost02|
 
@@ -36,13 +29,6 @@ Vagrant.configure(2) do |config|
             vb.memory = "2048"
             vb.name = "worker"
       end
-    containerhost02.vm.provision "shell" do |s|
-      s.inline = "sudo apt update"
-      s.inline = "sudo apt -y upgrade"
-      s.inline = "git clone https://github.com/lucaspsacchi/Trab1-TAAD.git"
-      s.inline = "cd Trab1-TAAD/scripts"
-      s.inline = "sudo chmod +rwx docker_init.sh"
-      s.inline = "sudo sh docker_init.sh"
-    end
+    containerhost02.vm.provision "shell", path: "../scripts/docker_init.sh"
   end
 end

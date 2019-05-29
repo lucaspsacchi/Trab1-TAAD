@@ -1,3 +1,8 @@
+# Teste
+sudo apt update
+sudo apt -y upgrade
+git clone https://github.com/lucaspsacchi/Trab1-TAAD.git
+
 
 # Baixando o docker e docker swarn
 apt -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
