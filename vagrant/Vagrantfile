@@ -22,8 +22,8 @@ Vagrant.configure(2) do |config|
       s.inline = "sudo apt -y upgrade"
       s.inline = "git clone https://github.com/lucaspsacchi/Trab1-TAAD.git"
       s.inline = "cd Trab1-TAAD/scripts"
-      s.inline = "chmod 777 docker_init.sh"
-      s.inline = "sh docker_init.sh"
+      s.inline = "chmod +rwx docker_init.sh"
+      s.inline = "sudo sh docker_init.sh"
     end
   end
   config.vm.define "worker" do |containerhost02|
@@ -41,8 +41,8 @@ Vagrant.configure(2) do |config|
       s.inline = "sudo apt -y upgrade"
       s.inline = "git clone https://github.com/lucaspsacchi/Trab1-TAAD.git"
       s.inline = "cd Trab1-TAAD/scripts"
-      s.inline = "chmod 777 docker_init.sh"
-      s.inline = "sh docker_init.sh"
+      s.inline = "chmod +rwx docker_init.sh"
+      s.inline = "sudo sh docker_init.sh"
     end
   end
 end
