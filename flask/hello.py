@@ -1,9 +1,9 @@
-from flask import Flask, request, render_template
+from flask import Flask
 app = Flask(__name__) # Nome da aplicação
 
-@app.route('/') # Rota raiz
-def hello_world():
-    arg = request.args.get("Argumento");
-    return render_template("/", arg), 200
-
-app.run(use_reloader=True)
+@app.route('/<arg>') # Rota raiz
+def hello_world(arg):
+  if not arg:
+    return "Hello World"
+  else:
+    return 'Hello, World!' . format(arg) . 200 # 200 representa o ok
