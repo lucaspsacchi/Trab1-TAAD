@@ -1,6 +1,9 @@
-from flask import Flask
-app = Flask(__name__)
+from flask import Flask, request, render_template
+app = Flask(__name__) # Nome da aplicação
 
-@app.route('/')
+@app.route('/') # Rota raiz
 def hello_world():
-    return 'Hello, World!'
+    arg = request.args.get("Argumento");
+    return render_template("/", arg), 200
+
+app.run(use_reloader=True)
