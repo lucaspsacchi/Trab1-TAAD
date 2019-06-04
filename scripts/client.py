@@ -11,7 +11,7 @@ def client(msg, port):
     # Cria o socket UDP
     sock = socket.socket(socket.AF_INET, # Internet
                         socket.SOCK_DGRAM) # UDP
-    
+
    # Envia a mensagem pelo socket para um ip e uma porta destino
     sock.sendto(info, (UDP_IP, port))
 
