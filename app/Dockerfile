@@ -1,4 +1,4 @@
-FROM python:2.7.15rc1
+FROM python:3.6
 
 COPY . /app
 
@@ -6,6 +6,6 @@ WORKDIR /app
 
 RUN pip install -r requirements.txt
 
-ENTRYPOINT ["python"]
+ENTRYPOINT ["python3"]
 
 CMD ["app.py"]
