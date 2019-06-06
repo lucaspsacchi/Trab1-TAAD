@@ -1,25 +1,24 @@
 #!flask/bin/python
 from flask import Flask, jsonify
+from datetime import datetime
 
 app = Flask(__name__)
 
 tasks = [
     {
         'id': 1,
-        'title': u'Buy groceries',
-        'description': u'Milk, Cheese, Pizza, Fruit, Tylenol',
-        'done': False
+        'timestamp': u'Buy groceries'
     }
 ]
 
-interface = {
-  '/GET_INFO': u'Recupera todas as informações armazenadas',
-  '/GET_INFO/id_info': u'Recupera a informação com o id passado'
-}
+# interface = {
+#   '/GET_INFO': u'Recupera todas as informações armazenadas',
+#   '/GET_INFO/id_info': u'Recupera a informação com o id passado'
+# }
 
-@app.route('/HOME', methods=['GET'])
-def interface():
-  return jsonify({'Menu': interface});
+# @app.route('/HOME', methods=['GET'])
+# def interface():
+#   return jsonify({'Menu': interface});
 
 # GET exibe lista de todas as tasks
 @app.route('/GET_INFO', methods=['GET'])
@@ -43,9 +42,7 @@ def create_task():
         abort(400)
     task = {
         'id': tasks[-1]['id'] + 1,
-        'title': request.json['title'],
-        'description': request.json.get('description', ""),
-        'done': False
+        'timestamp': datetime.now()
     }
     tasks.append(task)
     return jsonify({'task': task}), 201
