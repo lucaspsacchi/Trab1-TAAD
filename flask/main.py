@@ -19,7 +19,7 @@ interface = {
 
 @app.route('/HOME', methods=['GET'])
 def interface():
-  return jsonify('Menu': interface);
+  return jsonify({'Menu': interface});
 
 # GET exibe lista de todas as tasks
 @app.route('/GET_INFO', methods=['GET'])
