@@ -13,8 +13,8 @@ tasks = [
 ]
 
 @app.route('/')
-  def interface():
-    return render_template('interface.html');
+def interface():
+  return render_template('interface.html')
 
 # GET exibe lista de todas as tasks
 @app.route('/GET_INFO', methods=['GET'])
