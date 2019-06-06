@@ -12,7 +12,7 @@ tasks = [
     }
 ]
 
-@app.route('/')
+@app.route('/HOME')
 def interface():
   return render_template('interface.html')
 
