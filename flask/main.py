@@ -1,5 +1,5 @@
 #!flask/bin/python
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
@@ -12,9 +12,14 @@ tasks = [
     }
 ]
 
-@app.route('/HOME')
+interface = {
+  '/GET_INFO': u'Recupera todas as informações armazenadas',
+  '/GET_INFO/id_info': u'Recupera a informação com o id passado'
+}
+
+@app.route('/HOME', methods=['GET'])
 def interface():
-  return render_template('interface.html')
+  return jsonify('Menu': interface);
 
 # GET exibe lista de todas as tasks
 @app.route('/GET_INFO', methods=['GET'])
