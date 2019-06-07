@@ -1,5 +1,5 @@
 #!flask/bin/python
-from flask import Flask, jsonify
+from flask import Flask, jsonify, abort
 from datetime import datetime
 
 app = Flask(__name__)
@@ -10,15 +10,6 @@ tasks = [
         'timestamp': u'Buy groceries'
     }
 ]
-
-# interface = {
-#   '/GET_INFO': u'Recupera todas as informações armazenadas',
-#   '/GET_INFO/id_info': u'Recupera a informação com o id passado'
-# }
-
-# @app.route('/HOME', methods=['GET'])
-# def interface():
-#   return jsonify({'Menu': interface});
 
 # GET exibe lista de todas as tasks
 @app.route('/GET_INFO', methods=['GET'])
@@ -38,8 +29,6 @@ def get_task(info):
 
 @app.route('/POST_INFO', methods=['POST'])
 def create_task():
-    # if not request.json or not 'title' in request.json:
-    #     abort(400)
     task = {
         'id': tasks[-1]['id'] + 1,
         'timestamp': datetime.now()
