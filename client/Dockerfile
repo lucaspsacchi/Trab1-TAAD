@@ -1,7 +1,10 @@
 FROM ubuntu
 
-COPY . /app
+COPY . /client
 
-WORKDIR /app
+WORKDIR /client
 
-CMD [ "sh", "/app/interface.sh" ]
+RUN apt-get update && apt-get install -y \
+curl
+
+CMD [ "bash", "./interface.sh" ]

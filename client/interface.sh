@@ -1,7 +1,9 @@
 #!/bin/bash
-  opcao=-1
 
-  while [ $opcao != "0" ];
+# Código
+opcao=1
+
+  while [ $opcao > "0" ];
   do
     echo "Selecione uma opção:"
     echo "0 - Sair"
@@ -12,16 +14,21 @@
     echo ""
 
     case $opcao in
+      "0")
+        break
+      ;;
       "1")
         # código do curl do get
-        echo "Escolheu o 1"
+        curl -i 172.17.0.1:5000/GET_INFO
       ;;
       "2")
         # ...
-        echo "Escolheu o 2"
+        echo "Informe o id da informação"
+        read id
+        curl -i 172.17.0.1:5000/GET_INFO/$id
       ;;
       "3")
-        echo "Escolheu o 3"
+        curl -i -H "Content-Type: application/json" -X POST -d '{}' 172.17.0.1:5000/POST_INFO
       ;;
     esac
     echo ""
