@@ -19,18 +19,18 @@ opcao=1
       ;;
       "1")
         # código do curl do get
-        curl -i 172.17.0.1:5000/GET_INFO
+        curl -i 192.168.50.2:5000/GET_INFO
       ;;
       "2")
         # ...
         echo "Informe o id da informação"
         read id
-        curl -i 172.17.0.1:5000/GET_INFO/$id
+        curl -i 192.168.50.2:5000/GET_INFO/$id
       ;;
       "3")
         docker inspect --format="{{.Id}}"
         cat saida.txt
-        curl -i -H "Content-Type: application/json" -X POST -d '{}' 172.17.0.1:5000/POST_INFO
+        curl -i -H "Content-Type: application/json" -X POST -d '{}' 192.168.50.2:5000/POST_INFO
       ;;
     esac
     echo ""
