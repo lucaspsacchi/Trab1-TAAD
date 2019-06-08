@@ -16,11 +16,11 @@ sudo systemctl start docker
 sudo systemctl enable docker
 
 # Inicializando o docker swarm no master
-docker swarm init --advertise-addr 192.168.50.2:2377 > worker.sh
+sudo docker swarm init --advertise-addr 192.168.50.2:2377 > worker.sh
 
 # Criação da rede
-docker network create -d overlay --subnet 10.0.10.0/24 ClusterNet
-docker service create --name server_service --network ClusterNet --replicas 2 -p 5000:80 server
+sudo docker network create -d overlay --subnet 10.0.10.0/24 ClusterNet
+sudo docker service create --name server_service --network ClusterNet --replicas 3 -p 5001:80 francois/apache-hostname
 
 # Builda a imagem do server
 cd Trab1-TAAD/server
