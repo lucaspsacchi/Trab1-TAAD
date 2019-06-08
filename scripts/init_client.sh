@@ -17,4 +17,4 @@ sudo systemctl enable docker
 
 # Builda a imagem do docker
 cd Trab1-TAAD/client
-sudo docker build -t client:latest .
+# sudo docker build -t client:latest .
