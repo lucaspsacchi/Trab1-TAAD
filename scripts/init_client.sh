@@ -15,6 +15,10 @@ sudo apt -y install docker-ce docker-ce-cli containerd.io
 sudo systemctl start docker
 sudo systemctl enable docker
 
+# Adiciona a vm como worker no cluster
+chmod +x worker.sh
+sh worker.sh
+
 # Builda a imagem do docker
 cd Trab1-TAAD/client
 sudo docker build -t client:latest .
