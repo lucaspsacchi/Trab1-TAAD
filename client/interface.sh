@@ -28,6 +28,8 @@ opcao=1
         curl -i 172.17.0.1:5000/GET_INFO/$id
       ;;
       "3")
+        gnome-terminal -- bash -c 'sudo docker stats > saida.txt'
+        cat saida.txt
         curl -i -H "Content-Type: application/json" -X POST -d '{}' 172.17.0.1:5000/POST_INFO
       ;;
     esac
