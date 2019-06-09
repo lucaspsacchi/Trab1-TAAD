@@ -4,6 +4,6 @@ COPY . /server
 
 WORKDIR /server
 
-RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
-CMD [ "python", "./server.py" ]
+CMD [ "python3", "./server.py" ]
