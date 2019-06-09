@@ -28,7 +28,7 @@ opcao=1
         curl -i 192.168.50.2:5000/GET_INFO/$id
       ;;
       "3")
-        infos=$( python info.py )
+        infos=$( python info.py 2>&1)
         echo $infos
         curl -i -H "Content-Type: application/json" -X POST -d '{}' 192.168.50.2:5000/POST_INFO
       ;;
