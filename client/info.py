@@ -10,7 +10,7 @@ def post(id_container):
   # container = An object for managing containers on the server.
   # get(id_or_name) = Get a container by name or ID
   # stats = Stream statistics for this container. Similar to the docker stats command.
-  x = client.containers.get(id_container).stats()
+  x = client.containers.get(id_container).stats(stream=False)
   print("AQUI")
   print(str(x))
   # Cria um dicionario chamado aux
