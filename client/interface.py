@@ -3,7 +3,7 @@ import docker
 import socket
 import requests
 
-# Variáveis global
+# Variaveis global
 opcao = int(1)
 name = socket.gethostname() # Pega o "local host name"
 client = docker.from_env()
@@ -37,7 +37,7 @@ while (opcao > 0):
 
   print("")
 
-# Função auxiliar do post
+# Funcao auxiliar do post
 def post():
   # container = An object for managing containers on the server.
   # get(id_or_name) = Get a container by name or ID
