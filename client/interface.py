@@ -14,7 +14,7 @@ def post():
   # get(id_or_name) = Get a container by name or ID
   aux = {}
 
-  x = client.container.get(name).stats()
+  x = client.containers.get(name).stats()
   aux['nome'] = x['name']
   aux['id'] = x['id']
 
