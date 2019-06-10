@@ -10,5 +10,3 @@ sudo docker build -t client:latest .
 
 sudo docker run -it --rm client:latest
 
-docker swarm init --advertise-addr 192.168.50.2:2377 > ../script/token.sh
-
