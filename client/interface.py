@@ -7,7 +7,7 @@ from flask import Flask # Teste
 # Variaveis global
 app = Flask(__name__)
 opcao = int(1)
-name = socket.gethostname() # Pega o "local host name" que é o id do container
+name = socket.gethostname() # Pega o "local host name" que eh o id do container
 client = docker.from_env()
 
 # Funcao auxiliar do post
