@@ -18,6 +18,8 @@ def post(id_container):
   aux = {}
   aux['nome'] = x['name']
   aux['id'] = x['id']
+  print("ALI")
+  print(str(aux))
 
   return json.dumps(aux)
 
