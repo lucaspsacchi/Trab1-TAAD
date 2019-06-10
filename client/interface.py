@@ -29,7 +29,7 @@ while (opcao > 0):
     response = requests.get("http://192.168.50.2:5000/GET_INFO/" + str(info))
     print(json.dumps(response.json()))
   elif opcao == 3:
-    # Pega as informações do docker
+    # Pega as informacoes do docker
     aux = post()
     response = requests.post("http://192.168.50.2:5000/POST_INFO", data={'id': aux['id'], 'nome': aux['nome']})
     if response:
