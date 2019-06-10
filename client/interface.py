@@ -12,9 +12,9 @@ client = docker.from_env()
 def post():
   # container = An object for managing containers on the server.
   # get(id_or_name) = Get a container by name or ID
-  aux = {}
+  x = client.containers.get(name).stats(stream=False)
 
-  x = client.containers.get(name).stats()
+  aux = {}
   aux['nome'] = x['name']
   aux['id'] = x['id']
 
