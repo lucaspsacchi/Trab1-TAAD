@@ -31,9 +31,9 @@ def create_task():
     task = {
         'id': tasks[-1]['id'] + 1,
         'timestamp': datetime.now(),
-        'nome': request.args.get('nome'),
-        'id_container': request.args.get('id_container'),
-        'id_naosei': request.args.get('id') # NAO SEI
+        'nome': request.form.get('nome'),
+        'id_container': request.form.get('id_container'),
+        'id_naosei': request.form.get('id') # NAO SEI
     }
     tasks.append(task)
     return jsonify({'task': task}), 201
