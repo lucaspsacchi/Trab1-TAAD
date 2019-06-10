@@ -33,8 +33,6 @@ while (opcao > 0):
   elif opcao == 3:
     # Pega as informacoes do docker
     response = requests.get("http://192.168.50.3:5000/" + str(id_container))
-    print("AQUI")
-    print(str(response))
     # Passa os dados obtidos para o metodo post do server
     response = requests.post("http://192.168.50.2:5000/POST_INFO", data={'id_container': id_container,'id': response['id'], 'nome': response['nome']})
     if response:
