@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import json
 import docker
 import socket
@@ -17,7 +19,7 @@ def post():
   # stats = Stream statistics for this container. Similar to the docker stats command.
   x = client.containers.get(name).stats()
 
-  # Cria um dicionário chamado aux
+  # Cria um dicionario chamado aux
   aux = {}
   aux['nome'] = x['name']
   aux['id'] = x['id']
