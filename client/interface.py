@@ -34,7 +34,8 @@ while (opcao > 0):
     # Pega as informacoes do docker
     response = requests.get("http://192.168.50.3:5000/" + str(id_container))
     # Passa os dados obtidos para o metodo post do server
-    response = requests.post("http://192.168.50.2:5000/POST_INFO", data=response)
+    print("response: " + response.json()
+    response = requests.post("http://192.168.50.2:5000/POST_INFO", data=response.json())
     if response:
       print("Informacoes inseridas com sucesso!")
   else:
