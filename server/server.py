@@ -26,7 +26,7 @@ def get_task(info):
 
 @app.route('/POST_INFO', methods=['POST'])
 def create_task():
-    data = json.loads(request.body.getvalue().encode("utf-8"))
+    data = json.dumps(request.get_json())
     print("ATIM: " + str(data))
     # if not request.json or not 'title' in request.json:
     #     abort(400)
