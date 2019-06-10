@@ -3,6 +3,8 @@ from flask import Flask
 
 client = docker.from_env()
 
+app = Flask(__name__)
+
 @app.route('/<int: id_container>', methods=['GET'])
 def post(name):
   # container = An object for managing containers on the server.
