@@ -19,7 +19,7 @@ def post(id_container):
   aux['nome'] = x['name']
   aux['id'] = x['id']
   aux['id_container'] = id_container
-
+  print("AUX: " + json.dumps(aux))
   return json.dumps(aux)
 
 if __name__ == '__main__':
