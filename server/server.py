@@ -1,6 +1,7 @@
 #!flask/bin/python
 from flask import Flask, jsonify, abort, request
 from datetime import datetime
+import json
 
 app = Flask(__name__)
 
@@ -26,8 +27,7 @@ def get_task(info):
 @app.route('/POST_INFO', methods=['POST'])
 def create_task():
     data = json.dumps(request.body)
-    print("AAAAAAAAAAAA")
-    print(str(request))
+    print("ATIM: " + str(data))
     # if not request.json or not 'title' in request.json:
     #     abort(400)
     task = {
