@@ -4,7 +4,7 @@ COPY . /server
 
 WORKDIR /server
 
-RUN sudo apt install python3-pip
-RUN pip3 install -r requirements.txt
+RUN apt install python-pip
+RUN pip install -r requirements.txt
 
 CMD [ "python3", "./server.py" ]
