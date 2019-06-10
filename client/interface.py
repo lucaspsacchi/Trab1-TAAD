@@ -21,15 +21,17 @@ while (opcao > 0):
     break
   elif opcao == 1:
     response = requests.get("http://192.168.50.2:5000/GET_INFO")
-    print(response.json().encode("utf-8"))
+    print(json.dumps(response.json()))
   elif opcao == 2:
     print("Informe o id da informacao")
     info = int(input())
     print("")
     response = requests.get("http://192.168.50.2:5000/GET_INFO/" + str(info))
-    print(response.json().encode("utf-8"))
+    print(json.dumps(response.json()))
   elif opcao == 3:
-    response = requests.post("http://192.168.50.2:5000/POST_INFO", json={})
+    # Pega as informações do docker
+    aux = post()
+    response = requests.post("http://192.168.50.2:5000/POST_INFO", data={'id': aux['id'], 'nome': aux['nome']})
     if response:
       print("Informacoes inseridas com sucesso!")
   else:
