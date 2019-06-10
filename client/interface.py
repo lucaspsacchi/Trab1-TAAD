@@ -4,8 +4,6 @@ import json
 import docker
 import socket
 import requests
-from flask import Flask # Teste
-
 # Variaveis global
 app = Flask(__name__)
 opcao = int(1)
@@ -23,6 +21,8 @@ def post():
   aux = {}
   aux['nome'] = x['name']
   aux['id'] = x['id']
+  aux['id_container'] = name
+
 
   return json.dumps(aux)
 
@@ -58,6 +58,3 @@ while (opcao > 0):
     print("Selecione outra opcao")
 
   print("")
-
-if __name__ == '__main__': # Teste
-    app.run(host='0.0.0.0')
