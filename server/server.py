@@ -26,16 +26,16 @@ def get_task(info):
 
 @app.route('/POST_INFO', methods=['POST'])
 def create_task():
-    data = json.dumps(request.get_json())
+    data = json.dumps(request)
     print("ATIM: " + str(data))
     # if not request.json or not 'title' in request.json:
     #     abort(400)
     task = {
         'id': tasks[-1]['id'] + 1,
         'timestamp': datetime.now(),
-        'nome': data[0],
-        'id_container': data[2],
-        'id_naosei': data[1] # NAO SEI
+        'nome': data.aux['nome'],
+        'id_container': data['id_container'],
+        'id_naosei': data['id'] # NAO SEI
     }
     tasks.append(task)
     return jsonify({'task': task}), 201
