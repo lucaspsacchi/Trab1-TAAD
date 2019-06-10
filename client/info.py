@@ -5,7 +5,7 @@ client = docker.from_env()
 
 app = Flask(__name__)
 
-@app.route('/<int: id_container>', methods=['GET'])
+@app.route('/<int:id_container>', methods=['GET'])
 def post(name):
   # container = An object for managing containers on the server.
   # get(id_or_name) = Get a container by name or ID
