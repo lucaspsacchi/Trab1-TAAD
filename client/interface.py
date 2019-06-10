@@ -9,11 +9,11 @@ name = socket.gethostname() # Pega o "local host name"
 client = docker.from_env()
 
 while (opcao > 0):
-  print("Selecione uma opção:")
+  print("Selecione uma opcao:")
   print("0 - Sair")
-  print("1 - GET_INFO: Recupera todas as informações")
-  print("2 - GET_INFO/id_info: Recupera as informações do id escolhido")
-  print("3 - POST_INFO: Adiciona informações no servidor REST")
+  print("1 - GET_INFO: Recupera todas as informacoes")
+  print("2 - GET_INFO/id_info: Recupera as informacoes do id escolhido")
+  print("3 - POST_INFO: Adiciona informacoes no servidor REST")
   opcao = int(input())
   print("")
 
@@ -23,7 +23,7 @@ while (opcao > 0):
     response = requests.get("http://192.168.50.2:5000/GET_INFO")
     print(response.json())
   elif opcao == 2:
-    print("Informe o id da informação")
+    print("Informe o id da informacao")
     info = int(input())
     print("")
     response = requests.get("http://192.168.50.2:5000/GET_INFO/" + str(info))
@@ -31,9 +31,9 @@ while (opcao > 0):
   elif opcao == 3:
     response = requests.post("http://192.168.50.2:5000/POST_INFO", json={})
     if response:
-      print("Informações inseridas com sucesso!")
+      print("Informacoes inseridas com sucesso!")
   else:
-    print("Selecione outra opção")
+    print("Selecione outra opcao")
 
   print("")
 
