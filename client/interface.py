@@ -3,9 +3,10 @@
 import json
 import socket
 import requests
+
 # Variaveis global
 opcao = int(1)
-name = socket.gethostname() # Pega o "local host name" que eh o id do container
+id_container = socket.gethostname() # Pega o "local host name" que eh o id do container
 client = docker.from_env()
 
 
@@ -32,8 +33,11 @@ while (opcao > 0):
     print(json.dumps(response.json()))
   elif opcao == 3:
     # Pega as informacoes do docker
-    aux = post()
-    response = requests.post("http://192.168.50.2:5000/POST_INFO", data={'id_container': name,'id': aux['id'], 'nome': aux['nome']})
+    response = requests.get("http://192.168.50.3/" + str(id_container))
+    print("AQUI")
+    print(str(response))
+    # Passa os dados obtidos para o metodo post do server
+    response = requests.post("http://192.168.50.2:5000/POST_INFO", data={'id_container': id_container,'id': response['id'], 'nome': response['nome']})
     if response:
       print("Informacoes inseridas com sucesso!")
   else:
