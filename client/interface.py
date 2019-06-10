@@ -7,7 +7,6 @@ import requests
 # Variaveis global
 opcao = int(1)
 id_container = socket.gethostname() # Pega o "local host name" que eh o id do container
-client = docker.from_env()
 
 
 # Interface

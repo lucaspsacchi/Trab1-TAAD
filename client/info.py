@@ -1,5 +1,4 @@
 import docker
-import socket
 from flask import Flask
 
 client = docker.from_env()
