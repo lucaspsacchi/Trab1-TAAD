@@ -1,5 +1,5 @@
 #!flask/bin/python
-from flask import Flask, jsonify, abort
+from flask import Flask, jsonify, abort, request
 from datetime import datetime
 
 app = Flask(__name__)
@@ -29,7 +29,10 @@ def create_task():
     #     abort(400)
     task = {
         'id': tasks[-1]['id'] + 1,
-        'timestamp': datetime.now()
+        'timestamp': datetime.now(),
+        'nome': request.form['nome'],
+        'id_container': request.form['id_container'],
+        'id_naosei': request.form['id'] # NAO SEI
     }
     tasks.append(task)
     return jsonify({'task': task}), 201
