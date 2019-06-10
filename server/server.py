@@ -29,15 +29,14 @@ def create_task():
     r = request.get_json()
     # if not request.json or not 'title' in request.json:
     #     abort(400)
-    task = {
-        'id': tasks[-1]['id'] + 1,
-        'timestamp': datetime.now(),
-        'nome': r.get('nome'),
-        'id_container': r.get('id_container'),
-        'id_naosei': r.get('id') # NAO SEI
-    }
+    task = {}
+    task["id"] = tasks[-1]['id'] + 1
+    task["timestamp"] = datetime.now()
+    task["nome"] = r.get('nome')
+    task["id_container"] = r.get('id_container')
+    task["id_naosei"] = r.get('id')
     tasks.append(task)
-    return jsonify({'task': task}), 201
+    return jsonify(task)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
