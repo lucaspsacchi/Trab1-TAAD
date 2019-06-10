@@ -6,13 +6,14 @@ import requests
 # Variaveis global
 opcao = int(1)
 name = socket.gethostname() # Pega o "local host name"
+print("Nome do host name" + str(name))
 client = docker.from_env()
 
 # Funcao auxiliar do post
 def post():
   # container = An object for managing containers on the server.
   # get(id_or_name) = Get a container by name or ID
-  x = client.containers.get(name).stats(stream=False)
+  x = client.containers.get(name).stats()
 
   aux = {}
   aux['nome'] = x['name']
