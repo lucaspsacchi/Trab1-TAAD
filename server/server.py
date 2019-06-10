@@ -25,6 +25,7 @@ def get_task(info):
 
 @app.route('/POST_INFO', methods=['POST'])
 def create_task():
+    data = json.dumps(request.body)
     print("AAAAAAAAAAAA")
     print(str(request))
     # if not request.json or not 'title' in request.json:
@@ -32,9 +33,9 @@ def create_task():
     task = {
         'id': tasks[-1]['id'] + 1,
         'timestamp': datetime.now(),
-        'nome': request.POST.get('nome'),
-        'id_container': request.POST.get('id_container'),
-        'id_naosei': request.POST.get('id') # NAO SEI
+        'nome': data['nome'],
+        'id_container': data['id_container'],
+        'id_naosei': data['id'] # NAO SEI
     }
     tasks.append(task)
     return jsonify({'task': task}), 201
