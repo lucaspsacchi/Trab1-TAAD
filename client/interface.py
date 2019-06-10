@@ -2,19 +2,22 @@ import json
 import docker
 import socket
 import requests
+from flask import Flask
 
 # Variaveis global
+app = Flask(__name__)
 opcao = int(1)
-name = socket.gethostname() # Pega o "local host name"
-print("Nome do host name" + str(name))
+name = socket.gethostname() # Pega o "local host name" que é o id_container
 client = docker.from_env()
 
 # Funcao auxiliar do post
 def post():
   # container = An object for managing containers on the server.
   # get(id_or_name) = Get a container by name or ID
+  # stats = Stream statistics for this container. Similar to the docker stats command.
   x = client.containers.get(name).stats()
 
+  # Cria um dicionário chamado aux
   aux = {}
   aux['nome'] = x['name']
   aux['id'] = x['id']
@@ -46,7 +49,7 @@ while (opcao > 0):
   elif opcao == 3:
     # Pega as informacoes do docker
     aux = post()
-    response = requests.post("http://192.168.50.2:5000/POST_INFO", data={'id': aux['id'], 'nome': aux['nome']})
+    response = requests.post("http://192.168.50.2:5000/POST_INFO", data={'id_container': name,'id': aux['id'], 'nome': aux['nome']})
     if response:
       print("Informacoes inseridas com sucesso!")
   else:
@@ -54,3 +57,5 @@ while (opcao > 0):
 
   print("")
 
+if __name__ == '__main__':
+    app.run(host='0.0.0.0')
