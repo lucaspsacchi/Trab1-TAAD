@@ -2,7 +2,7 @@ import json
 import docker
 import socket
 import requests
-from flask import Flask
+from flask import Flask # Teste
 
 # Variaveis global
 app = Flask(__name__)
@@ -57,5 +57,5 @@ while (opcao > 0):
 
   print("")
 
-if __name__ == '__main__':
+if __name__ == '__main__': # Teste
     app.run(host='0.0.0.0')

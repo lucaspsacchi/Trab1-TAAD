@@ -17,8 +17,8 @@ sudo systemctl enable docker
 
 # Adiciona a vm como worker no cluster
 cd Trab1-TAAD/
-chmod +x /vagrant/worker.sh
-sh /vagrant/worker.sh
+chmod +x /vagrant/token.sh
+sh /vagrant/token.sh
 
 # Builda a imagem do docker
 cd client/
