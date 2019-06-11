@@ -32,7 +32,7 @@ while (opcao > 0):
     print(json.dumps(response.json()))
   elif opcao == 3:
     # Pega as informacoes do docker
-    response = requests.get("http://192.168.50.3:5001/" + str(id_container))
+    response = requests.get("http://192.168.50.2:5001/" + str(id_container))
     # Passa os dados obtidos para o metodo post do server
     print("response: " + str(response.content))
     response = requests.post("http://192.168.50.2:5000/POST_INFO", json=response.content)
