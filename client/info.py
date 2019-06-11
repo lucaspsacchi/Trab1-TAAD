@@ -16,8 +16,8 @@ def post(id_container):
   aux = {}
   aux['id_container'] = id_container
   aux['nome'] = x['name']
-  aux['cpu_usage'] = x['cpu_usage']
-  aux['memory_stats'] = x['memory_stats']
+  # aux['cpu_usage'] = x['precpu_stats']['cpu_usage']
+  # aux['memory_stats'] = x['memory_stats']
 
   return str(aux)
 
