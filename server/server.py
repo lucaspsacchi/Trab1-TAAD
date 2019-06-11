@@ -27,7 +27,7 @@ def get_task(info):
 @app.route('/POST_INFO', methods=['POST'])
 def create_task():
 
-    r = json.loads(request.get_json())
+    r = json.dumps(request.decode('utf-8').get_json())
 
     task = {}
     task["id"] = tasks[-1]['id'] + 1
