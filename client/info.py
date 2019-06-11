@@ -18,7 +18,7 @@ def post(id_container):
   aux['id'] = x['id']
   aux['id_container'] = id_container
 
-  return aux
+  return json.dumps(aux)
 
 if __name__ == '__main__':
     app.run(host='192.168.50.3', port=5000) # IP DO WORKER
