@@ -26,14 +26,15 @@ def get_task(info):
 
 @app.route('/POST_INFO', methods=['POST'])
 def create_task():
-    r = request.json
+    print("AQUI" + str(request))
+    r = request.get_json()
 
     task = {}
     task["id"] = tasks[-1]['id'] + 1
     task["timestamp"] = datetime.now()
-    task["nome"] = r.get('nome')
-    task["id_container"] = r.get('id_container')
-    task["id_naosei"] = r.get('id')
+    task["nome"] = r.data['nome']
+    task["id_container"] = r.data['id_container']
+    task["id_naosei"] = r.data['id']
     tasks.append(task)
     return jsonify(task)
 
