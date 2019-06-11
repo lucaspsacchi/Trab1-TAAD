@@ -23,5 +23,3 @@ sh /vagrant/token.sh
 # Builda a imagem do docker
 cd client/
 sudo docker build -t client:latest .
-
-sudo docker service create --name server_service --network ClusterNet client:latest
