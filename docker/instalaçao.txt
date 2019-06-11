@@ -10,3 +10,7 @@ sudo docker build -t client:latest .
 
 sudo docker run -it --rm client:latest
 
+# Worker
+sudo apt install python-pip
+sudo pip install docker
+sudo pip install flask
