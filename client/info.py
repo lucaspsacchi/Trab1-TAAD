@@ -22,4 +22,4 @@ def post(id_container):
   return str(aux)
 
 if __name__ == '__main__':
-    app.run(host='192.168.50.2', port=5001) # IP DO WORKER
+    app.run(host='192.168.50.3', port=5001) # IP DO WORKER
