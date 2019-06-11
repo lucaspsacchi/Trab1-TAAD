@@ -20,8 +20,9 @@ sudo docker swarm init --advertise-addr 192.168.50.2:2377 | sed 5!d > /vagrant/t
 
 # Criação da rede
 sudo docker network create -d overlay --subnet 10.0.10.0/24 ClusterNet
-# sudo docker service create --name server_service --network ClusterNet --replicas 3 -p 5001:80 francois/apache-hostname
 
 # Builda a imagem do server
 cd Trab1-TAAD/server
 sudo docker build -t server:latest .
+
+sudo docker service create --name server_service --network ClusterNet -p 5000:5000 server:latest
