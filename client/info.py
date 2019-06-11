@@ -14,9 +14,10 @@ def post(id_container):
   x = client.containers.get(id_container).stats(stream=False)
   # Cria um dicionario chamado aux
   aux = {}
-  aux['nome'] = x['name']
-  aux['id'] = x['id']
   aux['id_container'] = id_container
+  aux['nome'] = x['name']
+  aux['cpu_usage'] = x['cpu_usage']
+  aux['memory_stats'] = x['memory_stats']
 
   return str(aux)
 
