@@ -8,7 +8,7 @@ app = Flask(__name__)
 tasks = [
     {
         'id': 1,
-        'timestamp': u'Buy groceries'
+        'timestamp': 'Mon, 10 Jun 2019 22:33:50 GMT'
     }
 ]
 
@@ -26,15 +26,15 @@ def get_task(info):
 
 @app.route('/POST_INFO', methods=['POST'])
 def create_task():
-    print("AQUI" + str(request))
-    r = request.get_json()
+
+    r = json.loads(request)
 
     task = {}
     task["id"] = tasks[-1]['id'] + 1
     task["timestamp"] = datetime.now()
-    task["nome"] = r.data['nome']
-    task["id_container"] = r.data['id_container']
-    task["id_naosei"] = r.data['id']
+    task["nome"] = r['nome']
+    task["id_container"] = r['id_container']
+    task["id_naosei"] = r['id']
     tasks.append(task)
     return jsonify(task)
 

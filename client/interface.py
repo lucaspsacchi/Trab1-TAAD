@@ -35,7 +35,7 @@ while (opcao > 0):
     response = requests.get("http://192.168.50.3:5000/" + str(id_container))
     # Passa os dados obtidos para o metodo post do server
     print("response: " + str(response.content))
-    response = requests.post("http://192.168.50.2:5000/POST_INFO", data=response.content)
+    response = requests.post("http://192.168.50.2:5000/POST_INFO", json=response.content)
     if response:
       print("Informacoes inseridas com sucesso!")
   else:
